@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <div class="row-100">
+      <div class="col col-lg-8 offset-2">
+        <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off" style = "width: 50%;">
+            <div class="form-group">
+                <label><b> post.title</b></label>
+                <input type="text" name="title" #title="ngModel" [(ngModel)]="post.title" value="{{post.title}}" class="form-control" required>
+                <div class="validation-error" *ngIf="title.invalid && title.touched">This fielld is required.</div>
+            </div>
+            <div class="form-group">
+                <label><b> post.body</b></label>
+                <textarea type="text" name="body" #body="ngModel" [(ngModel)]="post.body" value="{{post.body}}" class="form-control" required rows="5"></textarea>
+                <div class="validation-error" *ngIf="body.invalid && body.touched">This fielld is required.</div>
+            </div>
+            <div class="form-group">
+                <button  class="btn btn-outline-info btn-lg" (click)="GOBack()"><i class="fa fa-backward "></i></button>
+                <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block btn-outline-dark mt-1">SUBMIT</button>
+            </div>
+        </form>
+      </div >
+    </div >
+  </div>

@@ -1,0 +1,18 @@
+<h1>Post No .{{post.id}} Details</h1>
+  <div class="container-fluid">
+    <div class="row-100">
+      <div class="col col-lg-8 offset-2">
+        <div class="card">
+          <div class="card-header">
+            {{ post.id }}
+          </div>
+          <div class="card-body">
+            <h3 style="color: darkblue;" class="card-title">{{ post.title }}</h3>
+            <p class="card-text">{{ post.body }}</p>
+            <a href="{{'/EditPost/'+post.id}}" data-tip="Edit" class="btn btn-warning">Edit Post</a>
+            <button class="btn btn-lg" (click)="onDelete(post.id)"><i class="fa fa-trash text-danger"></i></button>|
+            <button  class="btn btn-outline-info btn-lg" (click)="GOBack()"><i class="fa fa-backward "></i></button>
+        </div>
+      </div >
+    </div >
+  </div>

@@ -1,0 +1,35 @@
+<h1>Posts:</h1>
+<div class="container-fluid mb-5">
+  <div class="row-100 mb-3">
+    <div class="col col-lg-8 offset-2 mb-2">
+      <div class="card mb-4" *ngFor="let post of Posts |slice:startIndex:endIndex">
+        <div class="card-header">
+          {{ post.id }}
+        </div>
+        <div class="card-body">
+          <h3 style="color: darkblue;" class="card-title">{{ post.title }}</h3>
+          <p class="card-text">{{ post.body }}</p>
+          <a href="{{'/PostDetails/'+post.id}}" data-tip="Details" class="btn btn-outline-info">Post Details</a>
+        </div>
+      </div>
+    </div >
+    <div class="col col-lg-8 offset-2 mb-4 pb-4">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li *ngFor="let item of getArrayFromNumber(Posts.length);let in=index" class="page-item">
+              <a class="page-link" (click)="updateIndex(in)">{{in+1}}</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div >
+  </div >
+</div>
